@@ -46,8 +46,8 @@ internal class PackAppleResourcesToKLibAction(
         val defaultDir = File(repackDir, "default")
         val resRepackDir = File(defaultDir, "resources")
 
-        task.logger.info("Adding resources to klib file `{}`", klibFile)
-        unzipTo(zipFile = klibFile, outputDirectory = repackDir)
+//        task.logger.info("Adding resources to klib file `{}`", klibFile)
+//        unzipTo(zipFile = klibFile, outputDirectory = repackDir)
 
         val manifestFile = File(defaultDir, "manifest")
         val manifest = Properties()
@@ -84,13 +84,13 @@ internal class PackAppleResourcesToKLibAction(
             task.logger.info("assets not found, compilation not required")
         }
 
-        val repackKonan = org.jetbrains.kotlin.konan.file.File(repackDir.path)
-        val klibKonan = org.jetbrains.kotlin.konan.file.File(klibFile.path)
-
-        klibFile.delete()
-        repackKonan.zipDirAs(klibKonan)
-
-        repackDir.deleteRecursively()
+//        val repackKonan = org.jetbrains.kotlin.konan.file.File(repackDir.path)
+//        val klibKonan = org.jetbrains.kotlin.konan.file.File(klibFile.path)
+//
+//        klibFile.delete()
+//        repackKonan.zipDirAs(klibKonan)
+//
+//        repackDir.deleteRecursively()
     }
 
     private fun compileAppleAssets(
@@ -117,7 +117,7 @@ internal class PackAppleResourcesToKLibAction(
             throw GradleException("Assets compilation failed: $errors")
         } else {
             task.logger.info("assets compiled")
-            rawAssetsDir.deleteRecursively()
+//            rawAssetsDir.deleteRecursively()
         }
     }
 }
